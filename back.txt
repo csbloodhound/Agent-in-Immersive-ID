@@ -1,0 +1,147 @@
+<script>
+  import { fade } from 'svelte/transition';
+  
+  
+  let initial_prompt = "Don't worry, things will be OK";
+  let circle_text = "Hi there!";
+  let button_status = "Start"
+
+  const playAudio = (path) => {
+    let audio = new Audio(path);
+    audio.play()
+  }
+
+  playAudio("/patient/hello.mp3")
+
+  const step1 = () => {
+    playAudio("/patient/Turn to the patient and temperature and.mp3")
+    return audio;
+  }
+
+  function handleStartClick() {
+    if (button_status == "Start"){
+      circle_text = "🐱";
+      button_status = "Stop"
+      let firstAudio = playAudio("/patient/therapy_start.mp3");
+
+    } else {
+      circle_text = "Hi there!";
+      button_status = "Start";
+    }
+  }
+
+  $: if (button_status == "Stop") {
+    initial_prompt = "The radiation therapy's kickin' off, and I'll be with you every step of the way.";
+  } else {
+    initial_prompt = "Don't worry, things will be OK";
+  }
+</script>
+
+<div in:fade={{ duration: 500 }} class="patient-top">
+  <div class="icon-plus-response-wrapper">
+    <div class="circle">
+      {circle_text}
+    </div>
+    <div class="gpt-response">
+      {initial_prompt}
+    </div>
+  </div>
+</div>
+
+<style>
+
+  :global(body) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh; 
+          margin: 0;
+          background: #F9F3EB;
+      }
+
+  div.patient-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  div.icon-plus-response-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+  }
+
+  div.circle {
+    background-color: #F5EADC; 
+    border-radius: 50%; 
+    width: 200px; 
+    height: 200px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: Arial, sans-serif; 
+    color: #0D3C26;
+    font-size: 40px; 
+    font-weight: 600;
+  }
+
+  div.gpt-response {
+    color: #0D3C26;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+  }
+
+  button.start-green {
+    display: flex;
+    padding: 9px 35px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    background: #0D3C26;
+    border: none;
+    padding: 14px 35px;
+    color: #F9F3EB;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 16px */
+  }
+
+  button.start-gray {
+    display: flex;
+    padding: 9px 35px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    background: rgb(146, 39, 10);
+    border: none;
+    padding: 14px 35px;
+    color: #F9F3EB;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 16px */
+  }
+
+  button.start-green:hover {
+    box-shadow: 0px 4px 15px rgba(120, 108, 95, 0.298);
+    cursor: pointer;
+  }
+
+  button.start-green:active {
+    box-shadow: 0px 2px 10px rgba(120, 108, 95, 0.298); 
+    transform: scale(0.99); 
+  }
+</style>
+
+
