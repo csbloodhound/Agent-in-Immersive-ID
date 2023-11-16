@@ -9,7 +9,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		paths: {
-			// base: dev ? '' : '/Agent-in-Immersive-ID'
+			base: dev ? '' : '/Agent-in-Immersive-ID'
 		}
 	}
 };
