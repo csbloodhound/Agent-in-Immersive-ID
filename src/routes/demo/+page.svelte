@@ -177,6 +177,15 @@
 
 <style>
 
+  :global(body) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+        margin: 0;
+        background: #F9F3EB;
+    }
+
   button.green-stasrt {
     display: flex;
     width: 100px;
