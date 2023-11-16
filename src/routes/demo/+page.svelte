@@ -44,7 +44,7 @@
 
     return new Promise((resolve, reject) => {
       // patient
-      let audio = new Audio("/patient/welcome.mp3");
+      let audio = new Audio("https://raw.githubusercontent.com/csbloodhound/Agent-in-Immersive-ID/blob/main/static/patient/welcome.mp3");
       patient_status = "active";
       patient_initial_prompt = "请您放心，这次的放疗会比以前更加轻松。我们使用了新的技术，能够更精准地定位，减少对周围健康组织的影响，因此您可能感觉不到那么多不适。";
       audio.play();
