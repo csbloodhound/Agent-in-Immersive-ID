@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   import IconResponse from "../../lib/component/patient/IconResponse.svelte";
   import VisResponse from "../../lib/component/doctor/VisResponse.svelte";
   import MyTitle from "../../lib/component/MyTitle.svelte";

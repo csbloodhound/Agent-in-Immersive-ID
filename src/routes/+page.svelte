@@ -1,6 +1,6 @@
 <script>
     import { fade } from 'svelte/transition';
-    
+    import { base } from '$app/paths';
 </script>
 
 
@@ -10,7 +10,7 @@
             Hi there! This is a Demo of AI Agent in immersive interaction.
         </h1>
         <div class="role-options">
-            <a href="/demo">
+            <a href="{base}/demo">
                 <button class="role-button">Start the Demo</button>
             </a>
         </div>
